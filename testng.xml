@@ -1,0 +1,7 @@
+<suite name="Smoke Suite" verbose="1" >
+    <test name="Login Tests">
+        <classes>
+            <class name="p05_10_2023.SwagLabsTests"/>
+        </classes>
+    </test>
+</suite>
