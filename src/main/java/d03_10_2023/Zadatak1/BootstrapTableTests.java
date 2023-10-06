@@ -1,4 +1,4 @@
-package p05_10_2023.Zadatak1;
+package p03_10_2023.Zadatak1;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
