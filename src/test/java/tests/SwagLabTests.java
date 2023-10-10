@@ -176,5 +176,15 @@ public class SwagLabTests extends BasicTest {
                 "Shopping cart icon should exist on the cart page.");
 
     }
+    @Test(priority = 12, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatBurgerMenuButtonIsEnabled() {
 
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+
+        Assert.assertTrue(topNavPage.isLeftNavButtonEnabled(),
+                "Left navigation menu button should be enabled on the cart page.");
+
+    }
 }
