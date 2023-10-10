@@ -510,10 +510,10 @@ public class SwagLabTests extends BasicTest {
 
         loginPage.loginWIthValidCredentials();
         topNavPage.clickOnCart();
-        footerPage.waitUntilTwitterIconIsVisible();
+        footerPage.waitUntilFacebookIconIsVisible();
         footerPage.clickOnFacebookIcon();
         sauceLabsFacebookPage.switchToNewTab();
-        sauceLabsFacebookPage.waitUntilUrlContainsTFacebookPage();
+        sauceLabsFacebookPage.waitUntilUrlContainsFacebookPage();
 
     }
     @Test(priority = 42, retryAnalyzer = SwagLabRetry.class)
@@ -521,9 +521,19 @@ public class SwagLabTests extends BasicTest {
 
         loginPage.loginWIthValidCredentials();
         topNavPage.clickOnCart();
-        footerPage.waitUntilTwitterIconIsVisible();
+        footerPage.waitUntilLinkedInIconIsVisible();
         footerPage.clickOnLinkedInIcon();
         sauceLabsLinkedInPage.switchToNewTab();
         sauceLabsLinkedInPage.waitUntilUrlContainsLinkedInPage();
+    }
+    @Test(priority = 43, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyCopyRightNoticeMessageInFooter() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+
+        Assert.assertEquals(footerPage.getFooterCopyRightMessageText(),
+                "© 2023 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy",
+                "Copy right notice message in footer should be '© 2023 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy'.");
     }
 }
