@@ -209,4 +209,12 @@ public class SwagLabTests extends BasicTest {
         leftNavPage.waitForLeftNavMenuToBeVisible();
 
     }
+    @Test(priority = 15, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatCartIconIsClickable() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        topNavPage.waitUntilCartIconIsClickable();
+
+    }
 }
