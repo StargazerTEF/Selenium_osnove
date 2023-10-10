@@ -1,6 +1,6 @@
 package tests;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -492,6 +492,17 @@ public class SwagLabTests extends BasicTest {
         loginPage.loginWIthValidCredentials();
         topNavPage.clickOnCart();
         footerPage.waitUntilLinkedInIconIsVisible();
+
+    }
+    @Test(priority = 41, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatTwitterIconIsWorking() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        footerPage.waitUntilTwitterIconIsVisible();
+        footerPage.clickOnTwitterIcon();
+        sauceLabsTwitterPage.switchToNewTab();
+        sauceLabsTwitterPage.waitUntilUrlContainsTwitterPage();
 
     }
 }
