@@ -237,4 +237,17 @@ public class SwagLabTests extends BasicTest {
                 "Sub title header for cart page should be 'Your Cart'.");
 
     }
+    @Test(priority = 18, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyTotalNumberOfOptionsInLeftNavigationMenu() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitForLeftNavMenuToBeVisible();
+
+        Assert.assertEquals(leftNavPage.getNumberOfOptionsInLeftNavMenu(), 4,
+                "Left navigation menu should contain 4 options.");
+
+    }
 }
