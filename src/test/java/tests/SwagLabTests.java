@@ -77,9 +77,9 @@ public class SwagLabTests extends BasicTest {
 
         loginPage.clickOnLoginButton();
 
-       Assert.assertEquals(driver.getCurrentUrl(),
-               baseUrl + "inventory.html",
-               "Current url should be 'https://www.saucedemo.com/inventory.html' ");
+        Assert.assertEquals(driver.getCurrentUrl(),
+                baseUrl + "inventory.html",
+                "Current url should be 'https://www.saucedemo.com/inventory.html' ");
 
         topNavPage.clickOnLeftNavMenuButton();
 
@@ -100,7 +100,6 @@ public class SwagLabTests extends BasicTest {
 
         String username = "standard_user";
         String password = "secret_sauce";
-        String currentPageUrl = "inventory.html";
 
         loginPage.clearAndTypeUserName(username);
         loginPage.clearAndTypePassword(password);
@@ -123,13 +122,24 @@ public class SwagLabTests extends BasicTest {
     }
 
     @Test(priority = 7, retryAnalyzer = SwagLabRetry.class)
-    public void VerifyUrlForCartPage () {
+    public void VerifyUrlForCartPage() {
 
-       loginPage.loginWIthValidCredentials();
-
+        loginPage.loginWIthValidCredentials();
         topNavPage.clickOnCart();
-
         cartPage.waitForUrlToContainCartPage();
+
+    }
+
+    @Test(priority = 8, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyTitleNameForCartPage() {
+
+        loginPage.loginWIthValidCredentials();
+        inventoryPage.clickOnAddToCartForSauceLabsBackpack();
+        topNavPage.clickOnCart();
+        cartPage.waitForCartPageToContainAddedProducts();
+
+        Assert.assertEquals(topNavPage.getTitleName(), "Swag Labs",
+                "Title for this page should be 'Swag Labs'.");
 
     }
 }
