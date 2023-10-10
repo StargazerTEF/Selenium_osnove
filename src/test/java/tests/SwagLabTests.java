@@ -516,4 +516,14 @@ public class SwagLabTests extends BasicTest {
         sauceLabsFacebookPage.waitUntilUrlContainsTFacebookPage();
 
     }
+    @Test(priority = 42, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatLinkedInIconIsWorking() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        footerPage.waitUntilTwitterIconIsVisible();
+        footerPage.clickOnLinkedInIcon();
+        sauceLabsLinkedInPage.switchToNewTab();
+        sauceLabsLinkedInPage.waitUntilUrlContainsLinkedInPage();
+    }
 }
