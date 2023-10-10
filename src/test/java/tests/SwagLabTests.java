@@ -276,4 +276,18 @@ public class SwagLabTests extends BasicTest {
         Assert.assertEquals(inventoryPage.getSubTitleText(), "Products",
                 "Sub title of inventory page should be 'Products'.");
     }
+    @Test(priority = 21, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatAboutOptionFromLeftNavigationMenuIsWorking() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitForLeftNavMenuToBeVisible();
+        leftNavPage.clickOnAboutLink();
+
+        Assert.assertEquals(sauceLabsWebsitePage.getPageUrl(),
+                "https://saucelabs.com/",
+                "Should be redirected to the Sauce Labs Website.");
+    }
 }
