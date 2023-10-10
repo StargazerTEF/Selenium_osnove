@@ -121,4 +121,15 @@ public class SwagLabTests extends BasicTest {
                 "Number of products in cart should be 1.");
 
     }
+
+    @Test(priority = 7, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyUrlForCartPage () {
+
+       loginPage.loginWIthValidCredentials();
+
+        topNavPage.clickOnCart();
+
+        cartPage.waitForUrlToContainCartPage();
+
+    }
 }
