@@ -263,4 +263,17 @@ public class SwagLabTests extends BasicTest {
                 "Spelling of elements in left navigation manu is not valid.");
 
     }
+    @Test(priority = 20, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatAllItemsOptionFromLeftNavigationMenuIsWorking() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitForLeftNavMenuToBeVisible();
+        leftNavPage.clickOnAllItemsLink();
+
+        Assert.assertEquals(inventoryPage.getSubTitleText(), "Products",
+                "Sub title of inventory page should be 'Products'.");
+    }
 }
