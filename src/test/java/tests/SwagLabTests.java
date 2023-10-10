@@ -165,4 +165,16 @@ public class SwagLabTests extends BasicTest {
                 "Left navigation menu button should exist on the cart page.");
 
     }
+    @Test(priority = 11, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatCartIconIsPresentOnCartPage() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+
+        Assert.assertTrue(topNavPage.doesCartIconExist(),
+                "Shopping cart icon should exist on the cart page.");
+
+    }
+
 }
