@@ -154,4 +154,15 @@ public class SwagLabTests extends BasicTest {
 
     }
 
+    @Test(priority = 10, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatBurgerMenuButtonIsPresent() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+
+        Assert.assertTrue(topNavPage.doesLeftNavButtonExist(),
+                "Left navigation menu button should exist on the cart page.");
+
+    }
 }
