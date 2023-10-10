@@ -408,4 +408,13 @@ public class SwagLabTests extends BasicTest {
         itemPage.waitUntilCurrentUrlContainsPageName();
 
     }
+    @Test(priority = 33, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatRemoveButtonIsVisible() {
+
+        loginPage.loginWIthValidCredentials();
+        inventoryPage.clickOnAddToCartForSauceLabsBackpack();
+        topNavPage.clickOnCart();
+        cartPage.waitUntilRemoveButtonIsVisible();
+
+    }
 }
