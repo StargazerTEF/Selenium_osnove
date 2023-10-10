@@ -227,4 +227,14 @@ public class SwagLabTests extends BasicTest {
                 "Number of products in cart icon should be 0.");
 
     }
+    @Test(priority = 17, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyTheSubHeaderTitleForCartPage() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+
+        Assert.assertEquals(cartPage.getSubHeaderTitleText(), "Your Cart",
+                "Sub title header for cart page should be 'Your Cart'.");
+
+    }
 }
