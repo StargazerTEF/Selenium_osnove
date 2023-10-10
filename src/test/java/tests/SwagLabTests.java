@@ -450,4 +450,13 @@ public class SwagLabTests extends BasicTest {
                 "Should be redirected to the inventory page.");
 
     }
+    @Test(priority = 37, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatCheckoutButtonIsVisible() {
+
+        loginPage.loginWIthValidCredentials();
+        inventoryPage.clickOnAddToCartForSauceLabsBackpack();
+        topNavPage.clickOnCart();
+        cartPage.waitUntilCheckoutButtonIsVisible();
+
+    }
 }
