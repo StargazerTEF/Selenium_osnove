@@ -30,5 +30,11 @@ public class InventoryPage extends BasicPage {
                 .until(ExpectedConditions.visibilityOf(getRemoveButtonForSauceLabsBackpack()));
     }
 
+    public WebElement getSubTitle () {
+        return driver.findElement(By.cssSelector("span.title"));
+    }
+    public String getSubTitleText () {
+        return getSubTitle().getText();
+    }
 }
 

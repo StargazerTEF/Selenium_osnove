@@ -17,15 +17,18 @@ public class LoginPage extends BasicPage {
     public void clickOnLoginButton () {
         getLoginButton().click();
     }
-    public String getLoginErrorMessage() {
-        return driver.findElement(By.cssSelector(".error-message-container h3")).getText();
+    public WebElement geLoginErrorMessage () {
+        return driver.findElement(By.cssSelector(".error-message-container h3"));
+    }
+    public String getLoginErrorMessageText () {
+        return geLoginErrorMessage().getText();
     }
     public WebElement getUserNameField () {
         return driver.findElement(By.id("user-name"));
     }
-    public void clearAndTypeUserName (String firstName) {
+    public void clearAndTypeUserName (String userName) {
         getUserNameField().clear();
-        getUserNameField().sendKeys(firstName);
+        getUserNameField().sendKeys(userName);
     }
 
     public WebElement getPasswordField () {
@@ -37,6 +40,11 @@ public class LoginPage extends BasicPage {
     }
     public boolean doesUserNameInputExist () {
         return elementExists(By.id("user-name"));
+    }
+    public void loginWIthValidCredentials () {
+        clearAndTypeUserName("standard_user");
+        clearAndTypePassword("secret_sauce");
+        clickOnLoginButton();
     }
 }
 
