@@ -329,5 +329,18 @@ public class SwagLabTests extends BasicTest {
         cartPage.waitForUrlToContainCartPage();
         topNavPage.clickOnLeftNavMenuButton();
         leftNavPage.waitUntilExitButtonIsVisible();
+
+    }
+    @Test(priority = 25, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatExitButtonFromLeftNavigationMenuIsWorking() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitUntilExitButtonIsVisible();
+        leftNavPage.clickOnExitButton();
+        cartPage.waitForLeftNavMenuToBecomeInvisible();
+
     }
 }
