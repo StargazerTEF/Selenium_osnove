@@ -303,4 +303,22 @@ public class SwagLabTests extends BasicTest {
         Assert.assertTrue(loginPage.doesUserNameInputExist(),
                 "Should be redirected to the login page.");
     }
+    @Test(priority = 23, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatResetAppOptionFromLeftNavigationMenuIsWorking() {
+
+        loginPage.loginWIthValidCredentials();
+        inventoryPage.clickOnAddToCartForSauceLabsBackpack();
+
+        Assert.assertEquals(topNavPage.getNumberOfProductsInCart(), "1",
+                "After reset the cart icon should be empty.");
+
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitForLeftNavMenuToBeVisible();
+        leftNavPage.clickOnResetAppButton();
+
+        Assert.assertEquals(topNavPage.getNumberOfProductsInCart(), "",
+                "After reset the cart icon should be empty.");
+    }
 }
