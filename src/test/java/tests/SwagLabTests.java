@@ -199,5 +199,14 @@ public class SwagLabTests extends BasicTest {
                 "Cart icon should be enabled on the cart page.");
 
     }
+    @Test(priority = 14, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatBurgerMenuButtonIsWorking() {
 
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitForLeftNavMenuToBeVisible();
+
+    }
 }
