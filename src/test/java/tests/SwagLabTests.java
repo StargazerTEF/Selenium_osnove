@@ -13,7 +13,7 @@ public class SwagLabTests extends BasicTest {
 
         loginPage.clickOnLoginButton();
 
-        Assert.assertEquals(loginPage.getLoginErrorMessage(),
+        Assert.assertEquals(loginPage.getLoginErrorMessageText(),
                 "Epic sadface: Username is required",
                 "Error message should be 'Epic sadface: Username is required' ");
     }
@@ -27,7 +27,7 @@ public class SwagLabTests extends BasicTest {
 
         loginPage.clickOnLoginButton();
 
-        Assert.assertEquals(loginPage.getLoginErrorMessage(),
+        Assert.assertEquals(loginPage.getLoginErrorMessageText(),
                 "Epic sadface: Password is required",
                 "Error message should be 'Epic sadface: Password is required' ");
     }
@@ -43,7 +43,7 @@ public class SwagLabTests extends BasicTest {
 
         loginPage.clickOnLoginButton();
 
-        Assert.assertEquals(loginPage.getLoginErrorMessage(),
+        Assert.assertEquals(loginPage.getLoginErrorMessageText(),
                 "Epic sadface: Username and password do not match any user in this service",
                 "Error message should be 'Epic sadface: Username and password do not match any user in this service' ");
 
@@ -61,7 +61,7 @@ public class SwagLabTests extends BasicTest {
 
         loginPage.clickOnLoginButton();
 
-        Assert.assertEquals(loginPage.getLoginErrorMessage(),
+        Assert.assertEquals(loginPage.getLoginErrorMessageText(),
                 "Epic sadface: Sorry, this user has been locked out.",
                 "Error message should be 'Epic sadface: Sorry, this user has been locked out.' ");
     }
@@ -320,5 +320,14 @@ public class SwagLabTests extends BasicTest {
 
         Assert.assertEquals(topNavPage.getNumberOfProductsInCart(), "",
                 "After reset the cart icon should be empty.");
+    }
+    @Test(priority = 24, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatExitButtonFromLeftNavigationMenuIsVisible() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitUntilExitButtonIsVisible();
     }
 }
