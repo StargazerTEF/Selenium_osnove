@@ -478,4 +478,12 @@ public class SwagLabTests extends BasicTest {
         footerPage.waitUntilTwitterIconIsVisible();
 
     }
+    @Test(priority = 39, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatFacebookIconIsVisibleInTheFooter() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        footerPage.waitUntilFacebookIconIsVisible();
+
+    }
 }
