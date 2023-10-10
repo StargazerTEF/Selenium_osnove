@@ -187,4 +187,17 @@ public class SwagLabTests extends BasicTest {
                 "Left navigation menu button should be enabled on the cart page.");
 
     }
+
+    @Test(priority = 13, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatCartIconIsEnabled() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+
+        Assert.assertTrue(topNavPage.isCartIconEnabled(),
+                "Cart icon should be enabled on the cart page.");
+
+    }
+
 }
