@@ -352,5 +352,13 @@ public class SwagLabTests extends BasicTest {
         cartPage.waitForAddedProductsToBeVisibleOnThePage();
 
     }
+    @Test(priority = 27, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatItemsTitleAddedToTheCartIsVisible() {
 
+        loginPage.loginWIthValidCredentials();
+        inventoryPage.clickOnAddToCartForSauceLabsBackpack();
+        topNavPage.clickOnCart();
+        cartPage.waitForAddedProductsTitlesToBeVisibleOnThePage();
+
+    }
 }
