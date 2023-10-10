@@ -29,6 +29,14 @@ public abstract class BasicTest {
     protected InventoryPage inventoryPage;
     protected TopNavPage topNavPage;
     protected DeleteDialogPage deleteDialogPage;
+    protected CartPage cartPage;
+    protected SauceLabsWebsitePage sauceLabsWebsitePage;
+    protected ItemPage itemPage;
+    protected CheckoutPage checkoutPage;
+    protected FooterPage footerPage;
+    protected SauceLabsTwitterPage sauceLabsTwitterPage;
+    protected SauceLabsFacebookPage sauceLabsFacebookPage;
+    protected SauceLabsLinkedInPage sauceLabsLinkedInPage;
 
     @BeforeClass
     public void setup() {
@@ -46,6 +54,14 @@ public abstract class BasicTest {
         inventoryPage = new InventoryPage(driver, wait);
         topNavPage = new TopNavPage(driver, wait);
         deleteDialogPage = new DeleteDialogPage(driver, wait);
+        cartPage = new CartPage(driver, wait);
+        sauceLabsWebsitePage = new SauceLabsWebsitePage(driver, wait);
+        itemPage = new ItemPage(driver, wait);
+        checkoutPage = new CheckoutPage(driver, wait);
+        footerPage = new FooterPage(driver, wait);
+        sauceLabsTwitterPage = new SauceLabsTwitterPage(driver, wait);
+        sauceLabsFacebookPage = new SauceLabsFacebookPage(driver, wait);
+        sauceLabsLinkedInPage = new SauceLabsLinkedInPage(driver, wait);
     }
 
     @BeforeMethod
