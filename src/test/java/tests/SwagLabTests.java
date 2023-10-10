@@ -142,4 +142,16 @@ public class SwagLabTests extends BasicTest {
                 "Title for this page should be 'Swag Labs'.");
 
     }
+    @Test(priority = 9, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyTitleNameForCartPageWithoutAddingProducts() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+
+        Assert.assertEquals(driver.getTitle(), "Swag Labs",
+                "Title for this page should be 'Swag Labs'.");
+
+    }
+
 }
