@@ -217,4 +217,14 @@ public class SwagLabTests extends BasicTest {
         topNavPage.waitUntilCartIconIsClickable();
 
     }
+    @Test(priority = 16, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatCartIconHasCorrectNumberOfAddedProducts() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+
+        Assert.assertEquals(topNavPage.getNumberOfProductsInCart(), "",
+                "Number of products in cart icon should be 0.");
+
+    }
 }
