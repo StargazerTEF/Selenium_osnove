@@ -428,4 +428,13 @@ public class SwagLabTests extends BasicTest {
         cartPage.waitForAddedProductsToBecomeInvisibleOnThePage();
 
     }
+    @Test(priority = 35, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatContinueShoppingButtonIsVisible() {
+
+        loginPage.loginWIthValidCredentials();
+        inventoryPage.clickOnAddToCartForSauceLabsBackpack();
+        topNavPage.clickOnCart();
+        cartPage.waitUntilContinueShoppingButtonIsVisible();
+
+    }
 }
