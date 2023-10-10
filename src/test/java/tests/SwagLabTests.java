@@ -250,4 +250,17 @@ public class SwagLabTests extends BasicTest {
                 "Left navigation menu should contain 4 options.");
 
     }
+    @Test(priority = 19, retryAnalyzer = SwagLabRetry.class)
+    public void VerifySpellingOfAllOptionsInLeftNavigationMenu() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitForLeftNavMenuToBeVisible();
+
+        Assert.assertTrue(leftNavPage.checkSpellingOfAllOptionsInLeftNavMenu(),
+                "Spelling of elements in left navigation manu is not valid.");
+
+    }
 }
