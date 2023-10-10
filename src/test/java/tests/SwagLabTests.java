@@ -459,4 +459,15 @@ public class SwagLabTests extends BasicTest {
         cartPage.waitUntilCheckoutButtonIsVisible();
 
     }
+    @Test(priority = 37, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatCheckoutButtonIsWorking() {
+
+        loginPage.loginWIthValidCredentials();
+        inventoryPage.clickOnAddToCartForSauceLabsBackpack();
+        topNavPage.clickOnCart();
+        cartPage.waitUntilCheckoutButtonIsVisible();
+        cartPage.clickOnCheckoutButton();
+        checkoutPage.waitUntilUrlContainsPageName();
+
+    }
 }
