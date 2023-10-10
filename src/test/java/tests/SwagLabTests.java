@@ -290,4 +290,17 @@ public class SwagLabTests extends BasicTest {
                 "https://saucelabs.com/",
                 "Should be redirected to the Sauce Labs Website.");
     }
+    @Test(priority = 22, retryAnalyzer = SwagLabRetry.class)
+    public void VerifyThatLogoutOptionFromLeftNavigationMenuIsWorking() {
+
+        loginPage.loginWIthValidCredentials();
+        topNavPage.clickOnCart();
+        cartPage.waitForUrlToContainCartPage();
+        topNavPage.clickOnLeftNavMenuButton();
+        leftNavPage.waitForLeftNavMenuToBeVisible();
+        leftNavPage.clickOnLogoutButton();
+
+        Assert.assertTrue(loginPage.doesUserNameInputExist(),
+                "Should be redirected to the login page.");
+    }
 }
